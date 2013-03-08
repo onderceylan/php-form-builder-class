@@ -10,7 +10,6 @@ abstract class Element extends Base {
 	protected $shortDesc;
 	protected $longDesc;
 	protected $validation = array();
-	protected $prefillAfterValidation = 1;
 
 	public function __construct($label, $name, array $properties = null) {
 		$configuration = array(
@@ -29,7 +28,7 @@ abstract class Element extends Base {
 	/*When an element is serialized and stored in the session, this method prevents any non-essential
 	information from being included.*/
 	public function __sleep() {
-		return array("_attributes", "label", "validation", "prefillAfterValidation");
+		return array("_attributes", "label", "validation");
 	}
 
 	/*If an element requires external stylesheets, this method is used to return an
@@ -50,10 +49,6 @@ abstract class Element extends Base {
 
 	public function getLongDesc() {
 		return $this->longDesc;
-	}
-
-	public function prefillAfterValidation() {
-		return $this->prefillAfterValidation;
 	}
 
 	/*This method provides a shortcut for checking if an element is required.*/
@@ -126,9 +121,6 @@ abstract class Element extends Base {
 	Password, Date, Color, Button, Email, and File element classes.  The project's other element classes will
 	override this method with their own implementation.*/
 	public function render() {
-		if(isset($this->attributes["value"]) && is_array($this->attributes["value"]))
-			$this->attributes["value"] = "";
-
 		echo '<input', $this->getAttributes(), '/>';
 	}
 
@@ -154,13 +146,6 @@ abstract class Element extends Base {
 			$this->validation[] = new Validation\Required;
 		$this->_attributes["required"] = "";	
 	}
-
-	/*This method provides a shortcut for applying the MaxLength validation class to an element.*/
-	public function setMaxLength($limit) {
-        if(!empty($limit))
-            $this->validation[] = new Validation\MaxLength($limit);
-        $this->_attributes["maxlength"] = $limit;
-    }
 
 	/*This method applies one or more validation rules to an element.  If can accept a single concrete 
 	validation class or an array of entries.*/

@@ -1,3 +1,5 @@
+## Forked main PFBC project to make it possible to select multiple values on Select element which has option "multiple". Radio element is also updated for similar purposes. (Passing multiple values - in array)
+
 ## Project Overview
 
 The PFBC (PHP Form Builder Class) project is developed with the following goals in mind...

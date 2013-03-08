@@ -79,7 +79,7 @@ else {
 	</div>
 </div>	
 
-<p>PFBC supports 9 types of validation rules: AlphaNumeric, Captcha, Date, Email, MaxLength, Numeric, RegExp, Required, and Url.  Here's
+<p>PFBC supports 8 types of validation rules: AlphaNumeric, Captcha, Date, Email, Numeric, RegExp, Required, and Url.  Here's
 how they are applied to elements.</p>
 
 <?php	
@@ -92,12 +92,6 @@ $form->addElement(new Element\Textbox("Require:", "Required", array(
 	"required" => 1,
 	"longDesc" => "The required property provides a shortcut for applying the Required class to the element's
 	validation property.  If supported, the HTML5 required attribute will also provide client-side validation."
-)));
-$form->addElement(new Element\Textbox("Max Length:", "MaxLength", array(
-	"maxlength" => 10,
-	"shortDesc" => "maximum of 10 characters allowed",
-	"longDesc" => "The maxlength property provides a shortcut for applying the MaxLength class to the element's
-	validation property.  It will also add the maxlength attribute for client-side validation."
 )));
 $form->addElement(new Element\Textbox("Regular Expression:", "RegularExpression", array(
 	"validation" => new Validation\RegExp("/pfbc/", "Error: The %element% field must contain following keyword - \"pfbc\"."),
@@ -169,11 +163,6 @@ $form->addElement(new Element\Textbox("Require:", "Required", array(
 	"required" => 1,
 	"longDesc" => "The required property provides a shortcut for applying the Required class to the element\'s validation property.  If supported, the HTML5 required attribute will also provide client-side validation."
 )));
-$form->addElement(new Element\Textbox("Max Length:", "MaxLength", array(
-	"maxlength" => 10,
-	"shortDesc" => "maximum of 10 characters allowed",
-	"longDesc" => "The maxlength property provides a shortcut for applying the MaxLength class to the element\'s validation property.  It will also add the maxlength attribute for client-side validation."
-)));
 $form->addElement(new Element\Textbox("Regular Expression:", "RegularExpression", array(
 	"validation" => new Validation\RegExp("/pfbc/", "Error: The %element% field must contain following keyword - \"pfbc\"."),
 	"longDesc" => "The RegExp validation class provides the means to apply custom validation to an element.  Its constructor includes two parameters: the regular expression pattern to test and the error message to display if the pattern is not matched."
@@ -225,11 +214,6 @@ $form->addElement(new Element_Hidden("form", "validation"));
 $form->addElement(new Element_Textbox("Require:", "Required", array(
     "required" => 1,
     "longDesc" => "The required property provides a shortcut for applying the Required class to the element\'s validation property.  If supported, the HTML5 required attribute will also provide client-side validation."
-)));
-$form->addElement(new Element_Textbox("Max Length:", "MaxLength", array(
-	"maxlength" => 10,
-	"shortDesc" => "maximum of 10 characters allowed",
-	"longDesc" => "The maxlength property provides a shortcut for applying the MaxLength class to the element\'s validation property.  It will also add the maxlength attribute for client-side validation."
 )));
 $form->addElement(new Element_Textbox("Regular Expression:", "RegularExpression", array(
     "validation" => new Validation_RegExp("/pfbc/", "Error: The %element% field must contain following keyword - \"pfbc\"."),
